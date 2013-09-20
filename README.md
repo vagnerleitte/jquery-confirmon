@@ -8,7 +8,7 @@ A jQuery plugin for adding an easy 'are you sure' confirmation pop-up before the
 
 ##What does this plugin?
 
-The confirmOn plugin shows a confirmation box when the provided event is triggered. It works exactly like jQuery's .on() but with a confirmation step between the event and the handler. When the user clicks *yes* the handler is called, when the user clicks *no* then the confirmation box hides itself and nothing else happens.
+The confirmOn plugin shows a confirmation box when the provided events are triggered. It works exactly like jQuery's .on() but with a confirmation step between the event and the handler. When the user clicks *yes* the handler is called, when the user clicks *no* then the confirmation box hides itself and nothing else happens.
 
 ![Example of confirmation box](http://www.invetek.nl/wp-content/uploads/2013/09/example_1.png)
 
@@ -21,14 +21,14 @@ Grab jquery.confirmon.js from the repository and insert the following line _afte
 
 That's all.
 
-Maybe you want to use the stylesheet that creates an screenwide overlay and a centered box. No problem, just
+Maybe you want to use the stylesheet that creates a screenwide overlay and a centered box. No problem, just
 add jquery.confirmon.css to your html.
 
 ```html
 <link rel="stylesheet" type="text/css" href="jquery.confirmon.css"/>
 ```
 
-Since there are only a few classes involved you might better insert the classes into your existing stylesheet.
+Since there are only a few classes involved you can insert the classes into your existing stylesheet for performance sake.
 
 ##Usage
 
