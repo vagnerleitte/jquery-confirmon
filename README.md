@@ -1,9 +1,6 @@
 jQuery-confirmOn
 =================
 
-NOT READY FOR PRODUCTION - NOT READY FOR PRODUCTION - NOT READY FOR PRODUCTION - NOT READY FOR PRODUCTION
-NOT READY FOR PRODUCTION - NOT READY FOR PRODUCTION - NOT READY FOR PRODUCTION - NOT READY FOR PRODUCTION
-
 A jQuery plugin for adding an easy 'are you sure' confirmation pop-up before the handler in .on() is called.
 
 ##What does this plugin?
@@ -46,7 +43,15 @@ There are some options that can be set to customize the plugin. Add them as the 
 ```
 
 ##Example
+```javascript
+$('#myButton').confirmOn('click', function(){
+    deleteSomethingImportant();
+})
+```
+When #myButton is clicked, this confirmation box pops up:<br>
+![Screenshot of a confirmation box](/doc/screenshot_1.png)
 
-See a live example here: (insert link to live example)
+
+Check out this [live](http://www.invetek.nl/samples/confirmon/index.html) sample (and its [source](sample)).
 
 

@@ -2,8 +2,8 @@
     "name": "confirmon",
     "title": "jQuery confirmOn",
     "description": "A jQuery plugin for adding an easy 'are you sure' confirmation pop-up before an event handler is called",
-    "homepage": "http://www.invetek.nl/",
-    "demo": "http://www.invetek.nl/", 
+    "homepage": "http://www.invetek.nl/?p=66",
+    "demo": "http://www.invetek.nl/samples/confirmon/index.html", 
     "keywords": ["confirmation","confirm","button","form","event"],
     "author": {
         "name": "Loran Kloeze | Invetek",

@@ -7,7 +7,7 @@
  */
 
 /*
- * Bugdebug: event.preventDefault has to be called to prevent native handlers  (line 172) 
+ * Bug(?): event.preventDefault() has to be called to prevent native handlers  (line 176) 
  * 
  */
 
@@ -90,8 +90,10 @@
                     confirmOn.providedOptions = {};
                 }
             });
+        } else {
+           confirmOn.providedOptions = {}; 
         }
-        
+                
         if (selector == null && data == null && handler == null) {
             //(events[S], handler)
             selector = events;
@@ -132,6 +134,8 @@
     $.confirmOn.attachYesHandler = function($element, handler, event) {
         var classPrepend = $element.data('confirmon').options.classPrepend;
         $('.' + classPrepend + '-box button').eq(0).on('click', function(){
+            $.confirmOn.deleteOverlay($element);
+            $.confirmOn.deleteBox($element);
             handler.call($element.get(), event);
             
         });

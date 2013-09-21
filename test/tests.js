@@ -648,7 +648,7 @@ test('click confirmOn (2 args) attached button and click no', 4, function() {
 });
 
 
-test('click confirmOn (2 args) attached button with data and click yes', 2, function() {
+test('click confirmOn (2 args) attached button with data and click yes', 4, function() {
     var $fixture = createButtonFixture();    
     $fixture.confirmOn('click', {dataA:'MyData', dataB:'MoreData'}, function(event) {
         equal(event.data.dataA, 'MyData', 'Data is passed correctly to handler');
@@ -660,6 +660,10 @@ test('click confirmOn (2 args) attached button with data and click yes', 2, func
 
     //Click yes
     $('.confirmon-box button').eq(0).trigger('click');
+    
+    //Make sure that both overlay and box are deleted
+    equal($('.confirmon-overlay').length, 0, 'Overlay is deleted');
+    equal($('.confirmon-box').length, 0, 'Box is deleted');
 
 });
 
@@ -677,6 +681,36 @@ test('click confirmOn (2 args) attached link and click yes', 3, function() {
     //Click yes
     $('.confirmon-box button').eq(0).trigger('click');
 
+});
+
+test('options are unique per confirmOn attachment', 3, function() {
+    var $fixture_1 = createButtonFixture(),
+        $fixture_2 = createButtonFixture(),
+        $fixture_3 = createButtonFixture();
+
+    $fixture_1.confirmOn('click', function(){
+    });
+    
+    $fixture_2.confirmOn({
+        questionText: 'This cannot be undone, are you absolutely sure?'
+    }, 'click', function(){
+    });
+    
+    $fixture_3.confirmOn('click', function(){
+    });
+
+    $fixture_1.trigger('click');
+    equal($('.confirmon-box p').html(), 'Are you sure?', 'Questiontext is the default');
+    $('.confirmon-box button').eq(1).trigger('click');
+    
+    $fixture_2.trigger('click');
+    equal($('.confirmon-box p').html(), 'This cannot be undone, are you absolutely sure?', 'Questiontext is following option text');
+    $('.confirmon-box button').eq(1).trigger('click');
+    
+    $fixture_3.trigger('click');
+    equal($('.confirmon-box p').html(), 'Are you sure?', 'Questiontext is the default');
+    $('.confirmon-box button').eq(1).trigger('click');
+    
 });
 
 /*****************************************************
