@@ -131,23 +131,22 @@
 
     };
     
-    $.confirmOn.attachYesHandler = function($element, handler, event) {
+    $.confirmOn.attachHandlers = function($element, handler, event) {
         var classPrepend = $element.data('confirmon').options.classPrepend;
         $('.' + classPrepend + '-box button').eq(0).on('click', function(){
             $.confirmOn.deleteOverlay($element);
             $.confirmOn.deleteBox($element);
-            handler.call($element.get(), event);
-            
+            handler.call($element.get(), event, true); //Call the handler function. the TRUE parameter indicates that the user pressed the YES button
+
         });
-        
-    };
-    
-    $.confirmOn.attachNoHandler = function($element) {
-        var classPrepend = $element.data('confirmon').options.classPrepend;
+
         $('.' + classPrepend + '-box button').eq(1).on('click', function(){
             $.confirmOn.deleteOverlay($element);
             $.confirmOn.deleteBox($element);
+            handler.call($element.get(), event, false); //Call the handler function. the FALSE parameter indicates that the user pressed the YES button
+
         });
+
     };
 
     $.fn.confirmOn = function(options, events, selector, data, handler) {
@@ -178,11 +177,8 @@
             $.confirmOn.showOverlay($element);
             $.confirmOn.createBox($element);
             $.confirmOn.showBox($element);
-            $.confirmOn.attachYesHandler($element, userHandler, event);
-            $.confirmOn.attachNoHandler($element);
-            
-        }
-        ;
+            $.confirmOn.attachHandlers($element, userHandler, event);
+        };
 
     };
 

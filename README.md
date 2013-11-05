@@ -5,7 +5,7 @@ A jQuery plugin for adding an easy 'are you sure' confirmation pop-up before the
 
 ##What does this plugin?
 
-The confirmOn plugin shows a confirmation box when the provided events are triggered. It works exactly like jQuery's .on() but with a confirmation step between the event and the handler. When the user clicks *yes* the handler is called, when the user clicks *no* then the confirmation box hides itself and nothing else happens.
+The confirmOn plugin shows a confirmation box when the provided events are triggered. It works exactly like jQuery's .on() but with a confirmation step between the event and the handler. When the user answers the confirmation dialog, the handler is called with the answer as a parameter, so you can decide what to do next.
 
 ![Example of confirmation box](http://www.invetek.nl/wp-content/uploads/2013/09/example_1.png)
 
@@ -44,8 +44,11 @@ There are some options that can be set to customize the plugin. Add them as the 
 
 ##Example
 ```javascript
-$('#myButton').confirmOn('click', function(){
-    deleteSomethingImportant();
+$('#myButton').confirmOn('click', function(e, confirmed){
+    if(confirmed) deleteSomethingImportant();
+    else {
+        //If we need to, we can do some actions here if the user cancelled the confirmation
+    }
 })
 ```
 When #myButton is clicked, this confirmation box pops up:<br>

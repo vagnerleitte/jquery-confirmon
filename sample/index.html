@@ -9,30 +9,30 @@
         <link rel="stylesheet" type="text/css" href="../jquery.confirmon.css"/>
         <script>
             $(function() {
-                $('#button_1').confirmOn('click', function() {
-                    $(this).remove();
+                $('#button_1').confirmOn('click', function(e, confirmed) {
+                    if(confirmed) $(this).remove();
                 });
                 
                 $('#button_2').confirmOn({
                     questionText: 'This action cannot be undone, are you sure?',
                     textYes: 'Yes, I\'m sure',
                     textNo: 'No, I\'m not sure'
-                },'click', function() {
-                    $(this).remove();
+                },'click', function(e, confirmed) {
+                    if(confirmed) $(this).remove();
                 });
                 
-                $('#div_1').confirmOn('mouseover', function() {
-                    $(this).html('Handler called');
+                $('#div_1').confirmOn('mouseover', function(e, confirmed) {
+                    if(confirmed) $(this).html('Handler called');
                 });
                 
-                $('#div_2').confirmOn('mouseover', {arg1: new Date()}, function(e) {
-                    $(this).html('Data argument: '+e.data.arg1);
+                $('#div_2').confirmOn('mouseover', {arg1: new Date()}, function(e, confirmed) {
+                    if (confirmed) $(this).html('Data argument: '+e.data.arg1);
                 });
                 
                 $('#button_3').confirmOn({
                     classPrepend: 'myprefix'
-                },'click', function() {
-                    $(this).remove();
+                },'click', function(e, confirmed) {
+                    if(confirmed) $(this).remove();
                 });
                 
             });

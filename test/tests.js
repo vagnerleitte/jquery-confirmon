@@ -579,12 +579,25 @@ test('\'yes\' handler', 1, function() {
     $.confirmOn.setOptions($fixture);
     $.confirmOn.createBox($fixture);
 
-    var handler = function() {
-        ok(true, 'Yes handler called');
+    var handler = function(e, confirmed) {
+        if(confirmed) ok(true, 'Yes handler called');
     };
 
-    $.confirmOn.attachYesHandler($fixture, handler);
+    $.confirmOn.attachHandlers($fixture, handler);
     $('.confirmon-box button').eq(0).trigger('click');
+
+});
+test('\'no\' handler', 1, function() {
+    var $fixture = createButtonFixture();
+    $.confirmOn.setOptions($fixture);
+    $.confirmOn.createBox($fixture);
+
+    var handler = function(e, confirmed) {
+        if(!confirmed) ok(true, 'No handler called');
+    };
+
+    $.confirmOn.attachHandlers($fixture, handler);
+    $('.confirmon-box button').eq(1).trigger('click'); //assumes eq(1) returns the second button in the confirm dialog - the 'cancel' button
 
 });
 
@@ -611,8 +624,8 @@ test('check \'this\' is confirmOn attached button', 1, function(){
 
 test('click confirmOn (2 args) attached button and click yes', 3, function() {
     var $fixture = createButtonFixture();    
-    $fixture.confirmOn('click', function() {
-        ok(true, 'Handler for \'yes\' called');
+    $fixture.confirmOn('click', function(e, confirmed) {
+        if(confirmed) ok(true, 'Handler for \'yes\' called');
     });
 
     //Click button to trigger the confirmation box
@@ -625,10 +638,10 @@ test('click confirmOn (2 args) attached button and click yes', 3, function() {
 
 });
 
-test('click confirmOn (2 args) attached button and click no', 4, function() {
-    var $fixture = createButtonFixture();    
-    $fixture.confirmOn('click', function() {
-        ok(true, 'Handler for \'yes\' should not be called');
+test('click confirmOn (2 args) attached button and click no', 5, function() {
+    var $fixture = createButtonFixture();
+    $fixture.confirmOn('click', function(e, confirmed) {
+        if(confirmed === false) ok(true, 'Handler should be called with \'false\' argument');
     });
 
     //Click button to trigger the confirmation box
@@ -669,8 +682,8 @@ test('click confirmOn (2 args) attached button with data and click yes', 4, func
 
 test('click confirmOn (2 args) attached link and click yes', 3, function() {
     var $fixture = createLinkFixture();    
-    $fixture.confirmOn('click', function() {
-        ok(true, 'Handler for \'yes\' called');
+    $fixture.confirmOn('click', function(e, confirmed) {
+        if(confirmed) ok(true, 'Handler for \'yes\' called');
     });
 
     //Click button to trigger the confirmation box
@@ -680,6 +693,21 @@ test('click confirmOn (2 args) attached link and click yes', 3, function() {
 
     //Click yes
     $('.confirmon-box button').eq(0).trigger('click');
+
+});
+test('click confirmOn (2 args) attached link and click no', 3, function() {
+    var $fixture = createLinkFixture();    
+    $fixture.confirmOn('click', function(e, confirmed) {
+        if(!confirmed) ok(true, 'Handler for \'no\' called');
+    });
+
+    //Click button to trigger the confirmation box
+    $fixture.trigger('click');
+    equal($('.confirmon-overlay').is(':visible'), true, 'Overlay is visible');
+    equal($('.confirmon-box').is(':visible'), true, 'Box is visible');
+
+    //Click yes
+    $('.confirmon-box button').eq(1).trigger('click');
 
 });
 

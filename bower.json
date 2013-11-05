@@ -11,7 +11,12 @@
 			"name": "Loran Kloeze | Invetek",
                         "email": "loran@invetek.nl",
                         "url": "http://www.invetek.nl/"
-		}
+		},
+        {
+            "name": "Dag Jomar Mersland | MazeMap",
+                        "email": "dagjomar@mazemap.com",
+                        "url": "http://www.mazemap.com/"
+        }
 	],
 	"licenses": [
 		{
