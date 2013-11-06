@@ -1,5 +1,5 @@
 /*!
- * jQuery confirmOn Plugin 0.1.0
+ * jQuery confirmOn Plugin
  * https://github.com/invetek/jquery-confirmon
  *
  * Copyright 2013 Loran Kloeze - Invetek
@@ -50,6 +50,14 @@ td:first-child {
     color: #ddd;
     background-color: #0099cc;
     text-align: center;
+}
+
+#msg_button_1 {
+    display: none;
+    padding: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0099cc;
 }
 
 .myprefix-overlay {

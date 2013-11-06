@@ -3,11 +3,15 @@ jQuery-confirmOn
 
 A jQuery plugin for adding an easy 'are you sure' confirmation pop-up before the handler in .on() is called.
 
+##Changelog
+* [v0.1.1](https://github.com/invetek/jquery-confirmon/tree/0.1.1) - Added a handler for answer 'no'
+* [v0.1.0](https://github.com/invetek/jquery-confirmon/tree/0.1.0) - Initial release
+
 ##What does this plugin?
 
 The confirmOn plugin shows a confirmation box when the provided events are triggered. It works exactly like jQuery's .on() but with a confirmation step between the event and the handler. When the user answers the confirmation dialog, the handler is called with the answer as a parameter, so you can decide what to do next.
 
-![Example of confirmation box](http://www.invetek.nl/wp-content/uploads/2013/09/example_1.png)
+![Example of confirmation box](/doc/screenshot_2.png)
 
 ##Installing
 
@@ -57,4 +61,6 @@ When #myButton is clicked, this confirmation box pops up:<br>
 
 Check out this [live](http://www.invetek.nl/samples/confirmon/index.html) sample (and its [source](sample)).
 
-
+##Maintainers
+People who've contributed:
+*[Dag Jomar Mersland | MazeMap](https://github.com/dagjomar)

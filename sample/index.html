@@ -10,7 +10,11 @@
         <script>
             $(function() {
                 $('#button_1').confirmOn('click', function(e, confirmed) {
-                    if(confirmed) $(this).remove();
+                    if(confirmed) { // Clicked yes
+                        $(this).remove();
+                    } else { // Clicked no
+                        $('#msg_button_1').fadeIn();
+                    }
                 });
                 
                 $('#button_2').confirmOn({
@@ -42,13 +46,15 @@
     <body>
         <div class="contentwrapper">
             <h1>jQuery confirmOn plugin sample</h1>
-            <p>A confirmation box pops up when you click one of the buttons or hover over the blue boxes. If you click <i>no</i>, nothing happens. If you
-            click <i>yes</i>, the provided handler in .confirmOn() is called.</p>
+            <p>A confirmation box pops up when you click one of the buttons or hover over the blue boxes. If you
+                click <i>yes</i> or <i>no</i>, the provided handler in .confirmOn() is called with a 'confirmed' argument, this argument
+                tells you which button the user has clicked.
             <table>
                 <tr>
                     <td>Normal button</td>
                     <td>
                         <button id="button_1">Delete me</button>
+                        <div id="msg_button_1">*** You've answered 'no' ***</div>
                     </td>
                 </tr>
                 <tr>

@@ -10,11 +10,18 @@
         "email": "loran@invetek.nl",
         "url": "http://www.invetek.nl/"
         },
-    "version": "0.1.0",
+    "version": "0.1.1",
     "licenses": [
         {
             "type": "MIT",
             "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "maintainers": [
+        {
+            "name": "Dag Jomar Mersland | MazeMap",
+            "email": "dagjomar@mazemap.com",
+            "url": "http://www.mazemap.com/"
         }
     ],
     "dependencies": {
