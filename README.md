@@ -17,7 +17,7 @@ The confirmOn plugin shows a confirmation box when the provided events are trigg
 
 Grab jquery.confirmon.js from the repository and insert the following line _after_ the jQuery script in your code:
 ```html
-<script src="jquery.ajaxstartdelay.js"></script>
+<script src="jquery.confirmon.js"></script>
 ```
 
 That's all.
