@@ -63,4 +63,4 @@ Check out this [live](http://www.invetek.nl/samples/confirmon/index.html) sample
 
 ##Maintainers
 People who've contributed:
-*[Dag Jomar Mersland | MazeMap](https://github.com/dagjomar)
+* [Dag Jomar Mersland | MazeMap](https://github.com/dagjomar)
