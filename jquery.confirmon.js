@@ -58,9 +58,15 @@
         var textNo = $element.data('confirmon').options.textNo;
 
         var $box = $('<div/>').addClass(classPrepend + '-box').hide().appendTo('body');
-        $('<p/>').html(questionText).appendTo($box);
-        $('<button/>').html(textYes).appendTo($box);
-        $('<button/>').html(textNo).appendTo($box);
+        $('<p class="' + classPrepend + '-content"/>')
+            .html(questionText)
+            .appendTo($box);
+        $('<button class="' + classPrepend + '-button ' + classPrepend + '-button--yes"/>')
+            .html(textYes)
+            .appendTo($box);
+        $('<button class="' + classPrepend + '-button ' + classPrepend + '-button--no"/>')
+            .html(textNo)
+            .appendTo($box);
     };
 
     confirmOn.showBox = function($element) {
