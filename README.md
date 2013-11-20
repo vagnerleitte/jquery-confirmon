@@ -4,6 +4,7 @@ jQuery-confirmOn
 A jQuery plugin for adding an easy 'are you sure' confirmation pop-up before the handler in .on() is called.
 
 ##Changelog
+* [v0.1.2](https://github.com/invetek/jquery-confirmon/tree/0.1.2) - ClassPrepend option is now also used for the inner elements of the pop-up
 * [v0.1.1](https://github.com/invetek/jquery-confirmon/tree/0.1.1) - Added a handler for answer 'no'
 * [v0.1.0](https://github.com/invetek/jquery-confirmon/tree/0.1.0) - Initial release
 
@@ -40,7 +41,7 @@ There are some options that can be set to customize the plugin. Add them as the 
 ```javascript
 {
   questionText: 'Are you sure?', // The confirmation question
-  classPrepend: 'confirmon', // Use another prefix before the classes used by the plugin
+  classPrepend: 'confirmon', // Use another prefix for the classes used by the plugin
   textYes: 'Yes', // Text on the button the user clicks when the handler should be called 
   textNo: 'No' // Text on the button the user clicks when the handler should not be called
 }
@@ -64,3 +65,4 @@ Check out this [live](http://www.invetek.nl/samples/confirmon/index.html) sample
 ##Maintainers
 People who've contributed:
 * [Dag Jomar Mersland | MazeMap](https://github.com/dagjomar)
+* [Maxime Thirouin | MoOx] (https://github.com/MoOx)

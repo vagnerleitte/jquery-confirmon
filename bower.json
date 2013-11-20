@@ -1,7 +1,7 @@
 {
 	"name": "confirmon",
 	"description": "A jQuery plugin for adding an easy 'are you sure' confirmation pop-up before an event handler is called",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"dependencies": {
 		"jquery": ">=1.7"
 	},
@@ -12,11 +12,16 @@
                         "email": "loran@invetek.nl",
                         "url": "http://www.invetek.nl/"
 		},
-        {
-            "name": "Dag Jomar Mersland | MazeMap",
-                        "email": "dagjomar@mazemap.com",
-                        "url": "http://www.mazemap.com/"
-        }
+                {
+                    "name": "Dag Jomar Mersland | MazeMap",
+                                "email": "dagjomar@mazemap.com",
+                                "url": "http://www.mazemap.com/"
+                },
+                {
+                    "name": "Maxime Thirouin | MoOx",
+                                "email": "github@moox.io",
+                                "url": "http://moox.io/"
+                }
 	],
 	"licenses": [
 		{

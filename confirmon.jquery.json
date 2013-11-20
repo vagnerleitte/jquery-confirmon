@@ -10,7 +10,7 @@
         "email": "loran@invetek.nl",
         "url": "http://www.invetek.nl/"
         },
-    "version": "0.1.1",
+    "version": "0.1.2",
     "licenses": [
         {
             "type": "MIT",
@@ -22,6 +22,11 @@
             "name": "Dag Jomar Mersland | MazeMap",
             "email": "dagjomar@mazemap.com",
             "url": "http://www.mazemap.com/"
+        },
+        {
+            "name": "Maxime Thirouin | MoOx",
+            "email": "github@moox.io",
+            "url": "http://moox.io/"
         }
     ],
     "dependencies": {
