@@ -69,7 +69,7 @@
             .appendTo($box);
     
         $('.' + classPrepend + '-button').on('keydown', function(e){
-            if (e.which === 9) { 
+            if (e.which === 9) { //Tab key
               e.preventDefault(); 
               $('.' + classPrepend + '-button').not(this).focus();
             } 
@@ -90,6 +90,16 @@
             $(this).remove();
         });
     };
+    
+    $.confirmOn.handleEscKey = function($element) {
+        $(document).on('keydown.confirmon.close', function(e){
+            if (e.which === 27) { //Esc key
+                $.confirmOn.deleteOverlay($element);
+                $.confirmOn.deleteBox($element);
+                $(document).off('keydown.confirmon.close');
+            }
+        });
+    }
     
     confirmOn.convertArguments = function(options, events, selector, data, handler) {
         if (typeof options === 'object') {
@@ -193,6 +203,7 @@
             $.confirmOn.showOverlay($element);
             $.confirmOn.createBox($element);
             $.confirmOn.showBoxAndFocusNo($element);
+            $.confirmOn.handleEscKey($element);
             $.confirmOn.attachHandlers($element, userHandler, event);            
         };
 
