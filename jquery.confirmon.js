@@ -1,5 +1,5 @@
 /*!
- * jQuery confirmOn Plugin 0.1.2
+ * jQuery confirmOn Plugin 0.1.3
  * https://github.com/invetek/jquery-confirmon
  *
  * Copyright 2013 Loran Kloeze - Invetek
