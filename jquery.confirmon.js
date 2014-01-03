@@ -67,6 +67,14 @@
         $('<button class="' + classPrepend + '-button ' + classPrepend + '-button--no"/>')
             .html(textNo)
             .appendTo($box);
+    
+        $('.' + classPrepend + '-button').on('keydown', function(e){
+            if (e.which === 9) { 
+              e.preventDefault(); 
+              $('.' + classPrepend + '-button').not(this).focus();
+            } 
+        });
+        
     };
 
     confirmOn.showBoxAndFocusNo = function($element) {
