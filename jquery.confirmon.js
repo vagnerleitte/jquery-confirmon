@@ -69,9 +69,11 @@
             .appendTo($box);
     };
 
-    confirmOn.showBox = function($element) {
+    confirmOn.showBoxAndFocusNo = function($element) {
         var classPrepend = $element.data('confirmon').options.classPrepend;
-        $('.' + classPrepend + '-box').fadeIn();
+        $('.' + classPrepend + '-box').fadeIn(function(){
+            $(this).children('button').eq(1).focus();
+        });
     };
 
     confirmOn.deleteBox = function($element) {
@@ -80,7 +82,7 @@
             $(this).remove();
         });
     };
-
+    
     confirmOn.convertArguments = function(options, events, selector, data, handler) {
         if (typeof options === 'object') {
             $.each(options, function(key, val) {
@@ -178,12 +180,12 @@
         $element.on(onArgs.events, onArgs.selector, onArgs.data, onArgs.handler);
 
         function confirmHandler(event) {
-            event.preventDefault();
+            event.preventDefault();            
             $.confirmOn.createOverlay($element);
             $.confirmOn.showOverlay($element);
             $.confirmOn.createBox($element);
-            $.confirmOn.showBox($element);
-            $.confirmOn.attachHandlers($element, userHandler, event);
+            $.confirmOn.showBoxAndFocusNo($element);
+            $.confirmOn.attachHandlers($element, userHandler, event);            
         };
 
     };
