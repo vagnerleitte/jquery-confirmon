@@ -208,7 +208,7 @@ test('show/delete overlay and confirmation box', 6, function() {
     $.confirmOn.deleteOverlay($fixture);
     deepEqual($('.confirmon-overlay').length, 0, 'Overlay is deleted');
 
-    $.confirmOn.showBox($fixture);
+    $.confirmOn.showBoxAndFocusNo($fixture);
     deepEqual($('.confirmon-box').is(":visible"), true, 'Box is visible');
 
     $.confirmOn.deleteBox($fixture);

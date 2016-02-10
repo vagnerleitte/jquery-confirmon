@@ -1,5 +1,5 @@
 /*!
- * jQuery confirmOn Plugin 0.1.2
+ * jQuery confirmOn Plugin 0.1.3
  * https://github.com/invetek/jquery-confirmon
  *
  * Copyright 2013 Loran Kloeze - Invetek
@@ -67,11 +67,21 @@
         $('<button class="' + classPrepend + '-button ' + classPrepend + '-button--no"/>')
             .html(textNo)
             .appendTo($box);
+    
+        $('.' + classPrepend + '-button').on('keydown', function(e){
+            if (e.which === 9) { //Tab key
+              e.preventDefault(); 
+              $('.' + classPrepend + '-button').not(this).focus();
+            } 
+        });
+        
     };
 
-    confirmOn.showBox = function($element) {
+    confirmOn.showBoxAndFocusNo = function($element) {
         var classPrepend = $element.data('confirmon').options.classPrepend;
-        $('.' + classPrepend + '-box').fadeIn();
+        $('.' + classPrepend + '-box').fadeIn(function(){
+            $(this).children('button').eq(1).focus();
+        });
     };
 
     confirmOn.deleteBox = function($element) {
@@ -80,7 +90,17 @@
             $(this).remove();
         });
     };
-
+    
+    $.confirmOn.handleEscKey = function($element) {
+        $(document).on('keydown.confirmon.close', function(e){
+            if (e.which === 27) { //Esc key
+                $.confirmOn.deleteOverlay($element);
+                $.confirmOn.deleteBox($element);
+                $(document).off('keydown.confirmon.close');
+            }
+        });
+    }
+    
     confirmOn.convertArguments = function(options, events, selector, data, handler) {
         if (typeof options === 'object') {
             $.each(options, function(key, val) {
@@ -178,12 +198,13 @@
         $element.on(onArgs.events, onArgs.selector, onArgs.data, onArgs.handler);
 
         function confirmHandler(event) {
-            event.preventDefault();
+            event.preventDefault();            
             $.confirmOn.createOverlay($element);
             $.confirmOn.showOverlay($element);
             $.confirmOn.createBox($element);
-            $.confirmOn.showBox($element);
-            $.confirmOn.attachHandlers($element, userHandler, event);
+            $.confirmOn.showBoxAndFocusNo($element);
+            $.confirmOn.handleEscKey($element);
+            $.confirmOn.attachHandlers($element, userHandler, event);            
         };
 
     };
